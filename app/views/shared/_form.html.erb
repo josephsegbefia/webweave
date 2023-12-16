@@ -1,0 +1,7 @@
+<%= simple_form_for(@project) do |f| %>
+  <%= f.input :name, required: true, autofocus: true, placeholder: "e.g. Todo List App uing MERN" %>
+  <%= f.input :description, required: true, autofocus: true, placeholder: "An app built with the MERN stack"%>
+  <%= f.input :github, required: true, autofocus: true, placeholder: "Project github link" %>
+  <%= f.input :url, required: true, autofocus: true, placeholder: "Project love link" %>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>
