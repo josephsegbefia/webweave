@@ -1,0 +1,23 @@
+<div class = "container">
+  <div class = "row">
+    <h4>Add a project</h4>
+    <%= simple_form_for(@project) do |f| %>
+      <% if @project.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@project.errors.count, "error") %> prevented this project from being saved:</h2>
+
+        <ul>
+          <% @project.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <%= f.input :name, required: true, autofocus: true, placeholder: "e.g. Todo List App uing MERN" %>
+      <%= f.input :description, required: true, autofocus: true, placeholder: "An app built with the MERN stack"%>
+      <%= f.input :github, required: true, autofocus: true, placeholder: "Project github link" %>
+      <%= f.input :url, required: true, autofocus: true, placeholder: "Project love link" %>
+      <%= f.submit "Add Project", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

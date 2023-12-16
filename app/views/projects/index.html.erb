@@ -1,0 +1,14 @@
+<div class = "container">
+  <div class = "row">
+    <h4 class = "text-center">Projects</h4>
+    <div>
+      <% if @projects.any? %>
+        <% @projects.each do |project| %>
+          <%= project.name%>
+        <% end %>
+      <% else %>
+        <p>No projects yet! Come back later</p>
+      <% end %>
+    </div>
+  </div>
+</div>
