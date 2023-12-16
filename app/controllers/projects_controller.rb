@@ -41,6 +41,12 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def destroy
+    authorize @project
+    @project.destroy!
+    redirect_to monuments_url, notice: "Monument was successfully destroyed.", status: :see_other
+  end
+
   private
 
   def project_params
