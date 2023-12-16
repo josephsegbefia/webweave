@@ -4,7 +4,8 @@
     <div>
       <% if @projects.any? %>
         <% @projects.each do |project| %>
-          <%= project.name%>
+          <%= project.name %>
+          <%= cl_image_tag project.photo.key, height: 300, width: 400, crop: :fill %>
         <% end %>
       <% else %>
         <p>No projects yet! Come back later</p>
