@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  get 'dashboards/show'
   resources :projects, only: [:index, :new, :create, :show, :edit]
+  resources :dashboards, only: [:show]
   devise_for :users
   root to: "projects#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
