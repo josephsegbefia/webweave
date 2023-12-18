@@ -5,4 +5,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :projects
+  has_one :dashboard, dependent: :destroy
+  after_create :create_dashboard
+
+
+  private
+
+  def create_dashboard
+    Dashboard.create(user: self)
+  end
 end
