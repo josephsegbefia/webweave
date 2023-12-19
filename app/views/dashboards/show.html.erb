@@ -1,7 +1,8 @@
 <div class="container">
   <h3><%= @dashboard.user.email %></h3>
 
-  <div class = "jobs-container">
+  <div class = "jobs-container" data-controller="jobs-index">
     <h4>Jobs you can apply to</h4>
+    <ul id = "results" class = "list-group list-group-horizontal" data-jobs-index-target="results"></ul>
   </div>
 </div>
