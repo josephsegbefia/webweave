@@ -3,6 +3,8 @@
 
   <div class = "jobs-container" data-controller="jobs-index">
     <h4>Jobs you can apply to</h4>
-    <ul id = "results" class = "list-group list-group-horizontal" data-jobs-index-target="results"></ul>
+    <div id = "results" class = "d-flex flex-wrap justify-content-around m-4" data-jobs-index-target="results"></div>
+
+    <p>No number of projects:<%= current_user.projects.count %></p>
   </div>
 </div>
