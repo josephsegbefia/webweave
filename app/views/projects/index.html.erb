@@ -1,11 +1,17 @@
 <div class = "container">
   <div class = "row">
-    <h4 class = "text-center">Projects</h4>
-    <div>
+    <h3 class = "text-center">Projects</h3>
+    <div class = "d-flex flex-wrap justify-content-start m-4">
       <% if @projects.any? %>
         <% @projects.each do |project| %>
-          <%= project.name %>
-          <%= cl_image_tag project.photo.key, height: 300, width: 400, crop: :fill %>
+        <div class = "card m-1" style="width: 18rem;">
+          <%= cl_image_tag project.photo.key, width: 286, height: 180, crop: :fill, class: "card-img-top" %>
+          <div class = "card-body">
+            <div class = "card-title"><%= project.name %></div>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary btn-sm">Go somewhere</a>
+          </div>
+        </div>
         <% end %>
       <% else %>
         <p>No projects yet! Come back later</p>
