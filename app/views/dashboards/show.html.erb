@@ -5,6 +5,7 @@
     <%= %>
     <h4>Jobs you can apply to</h4>
     <div id = "results" class = "d-flex flex-wrap justify-content-around m-4" data-jobs-index-target="results"></div>
+    <button data-action="click->jobs-index#next">Next</button>
 
     <p>No number of projects:<%= current_user.projects.count %></p>
   </div>
