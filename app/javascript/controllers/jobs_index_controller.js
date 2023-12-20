@@ -9,10 +9,7 @@ const params = new URLSearchParams({
   num_pages: '20'
 });
 
-// const headers = {
-//   'X-RapidAPI-Key': '35cf0f26f2mshf30474c3c0fabe1p162696jsnce0701eed772',
-//   'X-RapidAPI-Host': 'jsearch.p.rapidapi.com'
-// };
+
 
 
 // Connects to data-controller="jobs-index"
@@ -25,8 +22,6 @@ export default class extends Controller {
 
 
   connect() {
-    console.log("hello from the jobs controller")
-    console.log(this.apiKeyValue);
     this.resultsTarget.innerHTML = ""
     fetch(`${url}?${params}`, {
       method: 'GET',
