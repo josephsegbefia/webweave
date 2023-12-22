@@ -4,14 +4,24 @@
     <div class = "d-flex flex-wrap justify-content-start m-4">
       <% if @projects.any? %>
         <% @projects.each do |project| %>
-        <div class = "card m-1" style="width: 18rem;">
-          <%= cl_image_tag project.photo.key, width: 286, height: 180, crop: :fill, class: "card-img-top" %>
-          <div class = "card-body">
-            <div class = "card-title"><%= project.name %></div>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary btn-sm">Go somewhere</a>
-          </div>
-        </div>
+          <%= link_to project_path(project), class: "text-decoration-none" do %>
+            <div class = "card m-1" style="width: 18rem;">
+              <%= cl_image_tag project.photo.key, width: 286, height: 180, crop: :fill, class: "card-img-top" %>
+              <div class = "card-body">
+                <div class = "card-title"><h5><%= project.name %></h4></div>
+                <p class="card-text"><%= project.description.truncate(100)%></p>
+                <%# <a href="#" class="btn btn-primary btn-sm">Go somewhere</a> %>
+                <div class = "m-2">
+                  <% if policy(project).edit? %>
+                    <%= link_to "Edit", edit_project_path(project), class: "btn btn-warning btn-sm"%>
+                  <% end %>
+                  <% if policy(project).destroy? %>
+                    <%= link_to "Delete", project_path(project), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-sm"%>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          <% end %>
         <% end %>
       <% else %>
         <p>No projects yet! Come back later</p>

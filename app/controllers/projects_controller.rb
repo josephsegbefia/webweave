@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
   # before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
 
 
   def index
@@ -35,7 +36,7 @@ class ProjectsController < ApplicationController
   def update
     authorize @project
     if @project.update(project_params)
-      redirect_to @project, notice: "Project was updated.", status: :see_other
+      redirect_to projects_path, notice: "Project was updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -43,8 +44,8 @@ class ProjectsController < ApplicationController
 
   def destroy
     authorize @project
-    @project.destroy!
-    redirect_to monuments_url, notice: "Monument was successfully destroyed.", status: :see_other
+    @project.destroy
+    redirect_to projects_path, status: :see_other
   end
 
   private

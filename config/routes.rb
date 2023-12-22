@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'dashboards/show'
-  resources :projects, only: [:index, :new, :create, :show, :edit]
+  resources :projects
   resources :dashboards, only: [:show]
   devise_for :users
   root to: "projects#index"
