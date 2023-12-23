@@ -15,12 +15,15 @@ class ProfilesController < ApplicationController
     authorize @profile
     if @profile.update(profile_params)
       redirect_to dashboard_path, notice: "Profile updated"
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   private
 
   def set_profile
+    @user = current_user
     @profile = current_user.profile
   end
 
