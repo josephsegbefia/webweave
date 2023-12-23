@@ -1,0 +1,14 @@
+<div class = "container">
+  <div class = "row">
+    <div class = "col-lg-8 mx-auto">
+      <div class="card">
+        <h5 class="card-header bg-info text-white">Complete your profile</h5>
+        <div class="card-body">
+          <h5 class="card-title">You have an incomplete profile</h5>
+          <p class="card-text">Hello, <%= current_user.first_name %>! Thank you for signing up to use our APP.</p>
+          <%= link_to "Complete your profile", profile_path, class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

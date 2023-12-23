@@ -1,0 +1,14 @@
+<div class = "container">
+  <div class = "row">
+    <%= simple_form_for(@profile, url: "/profile") do |f| %>
+      <%= f.input :email, input_html: { value: @profile.user.email, readonly: true } %>
+      <%= f.input :headline %>
+      <%= f.input :bio %>
+      <%= f.input :skills %>
+      <%= f.input :phone_number %>
+      <%= f.input :github %>
+      <%= f.input :linkedin %>
+      <%= f.submit "Save", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
