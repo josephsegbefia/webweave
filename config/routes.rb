@@ -1,8 +1,17 @@
 Rails.application.routes.draw do
-  get 'dashboards/show'
+  # get 'dashboards/show'
+  get '/profile', to: "profiles#show"
+  get '/complete_profile', to: "pages#complete_profile"
   resources :projects
+  # resources :profiles
   resources :dashboards, only: [:show]
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: "users/registrations"
+  }
+
+  resources :users do
+    resources :profiles, only: [:show, :edit, :update]
+  end
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
