@@ -15,4 +15,10 @@ class JobsController < ApplicationController
       redirect_to dashboard_path, status: :unprocessable_entity
     end
   end
+
+  private
+
+  def job_params
+    params.require(:job).permit(:job_title, :description, :job_id, :employer_name, :date_posted, :valid_until, :application_url, :job_employment_type, :job_country, :job_city, :job_qualifications, :job_responsibilities)
+  end
 end
