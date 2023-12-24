@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   validates_presence_of :first_name, :last_name
   has_many :projects, dependent: :destroy
+  has_many :jobs, dependent: :destroy
   has_one :dashboard, dependent: :destroy
   has_one :profile, dependent: :destroy
   after_create :create_dashboard
