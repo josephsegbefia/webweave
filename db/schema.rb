@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_22_210100) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_23_232005) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,6 +47,25 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_22_210100) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_dashboards_on_user_id"
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "job_title"
+    t.string "job_id"
+    t.text "description"
+    t.string "employer_name"
+    t.date "date_posted"
+    t.date "valid_until"
+    t.string "application_url"
+    t.string "job_employment_type"
+    t.string "job_country"
+    t.string "job_city"
+    t.text "job_qualifications"
+    t.text "job_responsibilities"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -91,6 +110,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_22_210100) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "dashboards", "users"
+  add_foreign_key "jobs", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "projects", "users"
 end
