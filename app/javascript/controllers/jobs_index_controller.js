@@ -11,14 +11,21 @@ const params = new URLSearchParams({
 
 // Connects to data-controller="jobs-index"
 export default class extends Controller {
-  static targets = ['results', 'jobs']
+  static targets = ['results', 'jobs', 'heart']
   static values = {
-    apiKey: String
+    apiKey: String,
+    title: String
   }
 
   connect() {
     console.log("Connected!");
     // this.show(); // Trigger the show method when the controller connects
+  }
+
+  save(){
+    console.log("Saved!");
+    console.log(this.titleValue);
+    this.heartTarget.style.color = 'red';
   }
 
   async show() {
@@ -45,15 +52,18 @@ export default class extends Controller {
         this.resultsTarget.innerHTML = "";
         data.data.forEach((job) => {
           console.log(job);
-          const jobCard = `<div class="card m-1" style="width: 18rem;">
+          const jobCard = `<div class="card m-1" style="width: 18rem; data-controller="jobs-index">
             <div class="card-body">
               <div class = "d-flex justify-content-between">
                 <h4 class="card-title">${job.employer_name}</h4>
-                <i class="fa-solid fa-heart"></i>
+                <i class="fa-regular fa-heart" data-jobs-index-target="heart" data-action="click->jobs-index#save"></i>
               </div>
 
               <small style="color:green">${job.job_title}</small> |
               <small>${job.job_city}, ${job.job_country}</small>
+              <div class = "d-none">
+                <small ></small>
+              </div>
               <p class="card-text"></p>
             </div>
           </div>`;
