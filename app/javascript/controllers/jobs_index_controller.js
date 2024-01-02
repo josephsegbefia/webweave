@@ -47,7 +47,11 @@ export default class extends Controller {
           console.log(job);
           const jobCard = `<div class="card m-1" style="width: 18rem;">
             <div class="card-body">
-              <h4 class="card-title">${job.employer_name}</h4>
+              <div class = "d-flex justify-content-between">
+                <h4 class="card-title">${job.employer_name}</h4>
+                <i class="fa-solid fa-heart"></i>
+              </div>
+
               <small style="color:green">${job.job_title}</small> |
               <small>${job.job_city}, ${job.job_country}</small>
               <p class="card-text"></p>
