@@ -1,8 +1,8 @@
 <div class="container">
   <div class = "jobs-container" data-controller="jobs-index" data-jobs-index-api-key-value="1c8da98f09msh9194b46232c9d44p1b0d9fjsn46de1d400edb">
     <h6 class = "text-center">Welcome <%= @dashboard.user.email %>, Jobs you can apply to</h6>
-    <%# <div id = "results" class = "d-flex flex-wrap justify-content-around m-4" data-jobs-index-target="results"></div> %>
-    <button data-action="click->jobs-index#next">Next</button>
+    <div id = "results" class = "d-flex flex-wrap justify-content-around m-4" data-jobs-index-target="results"></div>
+    <button data-action="click->jobs-index#show" data-jobs-index-target="jobs">Jobs</button>
 
     <p>No number of projects:<%= current_user.projects.count %></p>
   </div>

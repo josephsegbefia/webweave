@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   }
 
   resources :users do
+    resources :jobs, only: [:create, :index]
     resources :profiles, only: [:show, :edit, :update]
   end
   root to: "pages#home"
